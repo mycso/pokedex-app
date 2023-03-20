@@ -97,7 +97,7 @@ class App extends React.Component<any, AppState> {
             <div className="App">
                 <h1>Pokedex</h1>
                 <Pokedex
-                    pokemons={this.state.searchedPokemons}
+                    // pokemons={this.state.searchedPokemons}
                     onInputChange={this.handleInputChange}
                     onPokemonClick={this.handleClick}
                     selectedPokemon={this.state.selectedPokemon}

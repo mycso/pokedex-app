@@ -1,16 +1,17 @@
 import "./Searchbox.css";
 
 interface SearchboxProps {
-    onInputChange: (inputValue: string) => void;
+    search: any;
+    setSearch: (inputValue: string) => void;
 }
 
-const Searchbox = ({ onInputChange }: SearchboxProps) => {
+const Searchbox = ({ setSearch }: SearchboxProps) => {
+    
     return (
         <input
             className="search"
             onChange={(e) => {
-                console.log(e.target.value);
-                onInputChange(e.target.value);
+                setSearch(e.target.value);
             }}
             type="search"
             placeholder="Search Pokemons"

@@ -1,5 +1,3 @@
-import React from "react";
-import { PokemonSchema } from "../../types/PokemonSchema";
 import Pokecard from "../Pokecard/Pokecard";
 import "./Pokelist.css";
 import styled from 'styled-components';
@@ -14,28 +12,23 @@ const Title = styled.h4`
 `;
 
 interface PokelistProps {
-    pokemons: PokemonSchema[];
+    pokemons: any;
     onPokemonClick: (pokemonName: string) => void;
 }
 
 const Pokelist = ({ pokemons, onPokemonClick }: PokelistProps) => {
+
     return (
         <div className="pokelist">
             {!pokemons.length ? (
                 <Title>No Pokemon Available</Title>
-            ) : pokemons.map(pokemon => (
-                        <>
-                            {pokemon.name && (
-                                <>
-                                    <Pokecard
-                                        key={pokemon.id}
-                                        name={pokemon.name}
-                                        spriteUrl={pokemon.sprites.normal}
-                                        onPokemonClick={onPokemonClick}
-                                    />
-                                </>
-                            )}
-                        </>
+            ) : pokemons.map((pokemon: any) => (
+                    <Pokecard
+                        key={pokemon.id}
+                        name={pokemon.name}
+                        spriteUrl={pokemon.sprites.front_default}
+                        onPokemonClick={onPokemonClick}
+                    />
                 )
             )}
         </div>
